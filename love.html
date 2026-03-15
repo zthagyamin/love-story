@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>我们的恋爱日记</title>
+    
+    <style type="text/css">
+        body 
+        { 
+            background-color: #FFF0F5; 
+            text-align: center;
+            font-family: "Microsoft YaHei", sans-serif;
+            display: none; /* 初始隐藏，验证后显示 */
+        }
+        #days-count 
+        {
+            color: #ff4d4d;
+            font-size: 1.5em;
+        }
+        #days-countfuture
+        {
+            color:#4da6ff;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        button:hover 
+        {
+            transform: scale(1.1);
+            transition: 0.3s;
+        }
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body id="main-body">
+   
+    <audio id="bg-music" src="xiaoban.mp3" loop="loop"></audio>
+  
+    <h1>❤️ 小帅 &amp; 林林 的专属空间 ❤️</h1>
+    
+    <div id="countdown">
+        <p>我们已经在一起 <strong id="days-count">0</strong> 天了！</p>
+    </div>  
+
+    <div id="countfuture">
+        <p>我们将在 <strong id="days-countfuture">0</strong> 天后见面！</p>
+    </div>
+    
+    <h2>我们的纪念日</h2>
+    <table border="1" style="margin: 0 auto; border-collapse: collapse;">
+        <tr>
+            <th>日期</th>
+            <th>事件</th>
+        </tr>
+        <tr>
+            <td>2026 年 2 月 28 日</td>
+            <td>林林变成小帅的女朋友啦</td>
+        </tr>
+    </table>
+
+    <br />
+    <button onclick="sendLove()">发送一个爱心</button>
+
+    <div style="position: fixed; top: 20px; right: 20px; z-index: 999;">
+        <button onclick="toggleMusic()" style="font-size: 24px; cursor: pointer;">🎵</button>
+    </div>
+    
+    <script type="text/javascript">
+        // 验证函数
+        function checkPassword()
+        {
+            var password = "260228";
+            // 使用 loop 确保用户必须输入正确才能进入
+            while(true) {
+                var userInput = prompt("请输入我们的爱情暗号");
+                
+                if(userInput === null) {
+                    // 用户点击取消，刷新页面
+                    location.reload();
+                    break;
+                }
+
+                if(userInput === password)
+                {
+                    // 密码正确，显示 body
+                    document.getElementById("main-body").style.display = "block";
+                    // 启动计算功能
+                    updateDays();
+                    futureDays();
+                    // 尝试播放音乐（需要用户交互后才能生效）
+                    toggleMusic(); 
+                    break;
+                }
+                else
+                {
+                    alert("暗号不对哦，再想想？");
+                    // 循环继续，再次弹出输入框
+                }
+            }
+        }
+
+        // 自动计算天数的函数
+        function updateDays() 
+        {
+            var startDate = new Date(2026, 1, 28); // 注意：JS 中 1 代表 2 月 (0 是 1 月)
+            var today = new Date();
+            var diff = today - startDate;
+            // 毫秒转天数，避免负数
+            var days = Math.max(0, Math.floor(diff / (1000 * 60 * 60 * 24)));
+            document.getElementById("days-count").innerHTML = days;
+        }
+
+        function futureDays() 
+        {
+            var meetingday = new Date(2026, 5, 15); // 6 月 15 日见面
+            var today = new Date();
+        
+            var diff = meetingday - today;
+            var days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+            // 如果已经过了见面日，显示 0 或提示
+            days = Math.max(0, days);
+            document.getElementById("days-countfuture").innerHTML = days;
+        }
+
+        function sendLove()
+        {
+            alert("爱心已发送给对方！💕");
+        }
+
+        function toggleMusic() 
+        {
+            var music = document.getElementById("bg-music");
+            if (music.paused) 
+            {
+                music.play().catch(function(error) {
+                    console.log("自动播放被浏览器阻止，需手动点击音乐按钮");
+                });
+            } else 
+            {
+                music.pause();
+            }
+        }
+
+        // 页面加载完成后立即执行验证
+        window.onload = function()
+        {
+            checkPassword();
+        };
+    </script>
+</body>
+</html>
