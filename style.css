@@ -1,0 +1,96 @@
+body 
+{ 
+    background-color: #FFF0F5; 
+    text-align: center;
+    font-family: "Microsoft YaHei", "Courier New", sans-serif;
+    display: none; /* 密码验证前处于隐藏状态 */
+    padding-top: 50px;
+}
+
+.container 
+{
+    width: 80%;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px dashed #ffb3b3;
+}
+
+#days-count 
+{
+    color: #ff4d4d;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#days-countfuture 
+{
+    color: #4da6ff;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+/* 带有呼吸动画的爱心按钮 */
+@keyframes heartBeat 
+{
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.heart-btn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 12px 25px;
+    cursor: pointer;
+    margin: 20px;
+    font-weight: bold;
+    animation: heartBeat 1.5s infinite;
+}
+
+.heart-btn:hover 
+{
+    background-color: #ff3333;
+}
+
+/* 表格样式 */
+table 
+{
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 90%;
+    background-color: white;
+}
+
+th, td 
+{
+    border: 1px solid #ffccd5;
+    padding: 12px;
+}
+
+th 
+{
+    background-color: #ffb3b3;
+    color: white;
+}
+
+.music-ctrl 
+{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.message-card 
+{
+    /* 重点：左边框加粗，制造出“便签纸”的感觉 */
+    border-left: 5px solid #ff4d4d;
+    background-color: white;
+    margin-bottom: 15px; /* 每条留言拉开距离 */
+    padding: 15px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1); /* 加一点阴影，更有立体感 */
+}
