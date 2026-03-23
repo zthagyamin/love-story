@@ -85,12 +85,99 @@ th
     z-index: 1000;
 }
 
+/* 留言板整体容器 */
+fieldset 
+{
+    border: 2px solid #ffccd5;
+    border-radius: 15px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 15px rgba(255, 182, 193, 0.3);
+    margin-top: 30px;
+}
+
+legend 
+{
+    color: #ff4d4d;
+    font-weight: bold;
+    padding: 0 10px;
+    font-size: 1.2em;
+}
+
+/* 输入框优化 */
+input[type="text"], textarea 
+{
+    width: 100%;
+    border: 1px solid #ffccd5;
+    border-radius: 8px;
+    padding: 10px;
+    box-sizing: border-box; /* 确保 padding 不撑破盒子 */
+    outline: none;
+    transition: border 0.3s;
+}
+
+input[type="text"]:focus, textarea:focus 
+{
+    border: 1px solid #ff4d4d;
+    background-color: #fffafa;
+}
+
+/* 按钮样式优化 */
+input[type="submit"], input[type="reset"] 
+{
+    background-color: #ffb3b3;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 20px;
+    cursor: pointer;
+    margin: 10px 5px;
+    transition: 0.3s;
+}
+
+input[type="submit"]:hover 
+{
+    background-color: #ff4d4d;
+    transform: translateY(-2px);
+}
+
+/* 留言卡片样式 - 重点优化 */
 .message-card 
 {
-    /* 重点：左边框加粗，制造出“便签纸”的感觉 */
-    border-left: 5px solid #ff4d4d;
-    background-color: white;
-    margin-bottom: 15px; /* 每条留言拉开距离 */
+    background: white;
+    border-radius: 12px;
     padding: 15px;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.1); /* 加一点阴影，更有立体感 */
+    margin-bottom: 20px;
+    text-align: left;
+    position: relative;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.05);
+    border-left: 6px solid #ffb3b3;
+    animation: fadeIn 0.5s ease; /* 载入动画 */
+}
+
+@keyframes fadeIn 
+{
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.message-card strong 
+{
+    color: #ff4d4d;
+    font-size: 1.1em;
+}
+
+.message-card p 
+{
+    color: #555;
+    margin: 8px 0;
+    line-height: 1.5;
+}
+
+.message-card small 
+{
+    display: block;
+    color: #bbb;
+    font-size: 0.8em;
+    text-align: right;
 }
