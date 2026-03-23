@@ -49,30 +49,22 @@
         <button onclick="toggleMusic()" style="font-size: 24px; cursor: pointer; border: none; background: none;">🎵</button>
     </div>
     <fieldset>
-        <legend>留言板</legend>
+        <legend>💌 给天帝/林林的留言</legend>
         <form id="message-form" action="" method="get">
-            <table border="0" style="width:100%;">
-                <tr>
-                    <td style="width:30%;">昵称：</td>
-                    <td>
-                        <input type="text" id="nickname" size="30"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>消息：</td>
-                    <td>
-                        <textarea id="message-text" name="message-text" rows="4" cols="30"></textarea>
-                    </td>
-                </tr>
+            <div style="margin-bottom: 15px; text-align: left;">
+                <label for="nickname" style="display: block; margin-bottom: 5px;">昵称 (Nickname):</label>
+                <input type="text" id="nickname" name="nickname" placeholder="怎么称呼你呀？" />
+            </div>
+        
+            <div style="margin-bottom: 15px; text-align: left;">
+                <label for="message-text" style="display: block; margin-bottom: 5px;">想说的话 (Message):</label>
+                <textarea id="message-text" name="message-text" rows="4" placeholder="写下现在的想法..."></textarea>
+            </div>
 
-                <tr>
-                    <td colspan="2" style="text-align: center;">
-                        <input type="submit" value="Post Message" />
-                    
-                        <input type="reset" value="Clear" />
-                    </td>
-                </tr>
-            </table>
+            <div style="text-align: center;">
+                <input type="submit" value="确认发送" />
+                <input type="reset" value="重填" />
+            </div>
         </form>
     </fieldset>
 
