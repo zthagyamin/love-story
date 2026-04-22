@@ -1,76 +1,79 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="author" content="Zhang Boyi" />
-    <meta name="KEYWORDS" content="Love Diary, Memory, Special Space" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Our Exclusive Love Diary</title>
-    <!-- 分文件写样式和函数 -->
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <script type="text/javascript" src="script.js" defer="defer"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body id="main-body">
-   
     <audio id="bg-music" src="xiaoban.mp3" loop="loop"></audio>
-  
-    <div class="container">
-        <h1>❤️ 张天帝 &amp; 林林 的专属空间 ❤️</h1>
-        
-        <div id="countdown">
-            <p>我们已经在一起 <span id="days-count">0</span> 天了！</p>
-        </div>  
 
-        <div id="countfuture">
-            <p>距离下次见面还有 <span id="days-countfuture">0</span> 天！</p>
+    <div class="container">
+        <h1>❤️ 张天帝 & 林林 的专属空间 ❤️</h1>
+
+        <div class="status-grid">
+            <div class="status-card">
+                <p>我们已在一起</p>
+                <span id="days-count">0</span> 天
+            </div>
+            <div class="status-card">
+                <p>距离下次见面</p>
+                <span id="days-countfuture">0</span> 天
+            </div>
         </div>
-        
-        <h2>我们的纪念日 (Anniversaries)</h2>
-        <table border="1">
+
+        <div id="birthday-module" class="birthday-box">
+            <div id="birthday-info">
+                <p>🎂 距离林林的生日还有：</p>
+                <div id="birthday-timer">00天 00时 00分 00秒</div>
+            </div>
+
+            <div id="birthday-wish" style="display:none;">
+                <div class="crown">👑</div>
+                <h2 style="color: #d4af37; margin-top: 10px;">18 岁加冕礼</h2>
+                <p class="big-miss">“我很想你，真的很想你。”</p>
+            </div>
+        </div>
+
+        <div class="quote-area" id="quote-box">
+            <p id="quote-display">“点一下，接收张天帝的专属能量”</p>
+            <button class="pink-btn">给林林充电 ⚡</button>
+        </div>
+
+        <h2>我们的纪念日</h2>
+        <table>
             <thead>
-                <tr>
-                    <th>日期 (Date)</th>
-                    <th>事件 (Event)</th>
-                </tr>
+                <tr><th>日期</th><th>事件</th></tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>2026 年 2 月 28 日</td>
-                    <td>林林变成张天帝的女朋友啦 🌹</td>
-                </tr>
+                <tr><td>2026-02-28</td><td>林林变成张天帝的女朋友啦 🌹</td></tr>
+                <tr><td>2026-04-20</td><td>96分钟的沉默，是无声的拥抱 ☁️</td></tr>
+                <tr><td>2026-04-23</td><td>林林 18 岁加冕 ✨</td></tr>
             </tbody>
         </table>
 
-        <button class="heart-btn" onclick="sendLove()">发送一个爱心 (Send Love)</button>
-        
+        <button class="heart-btn" onclick="sendLove()">发送一个爱心 💕</button>
+
+        <fieldset>
+            <legend>💌 秘密留言板</legend>
+            <form id="message-form">
+                <input type="text" id="nickname" placeholder="怎么称呼你呀？" required>
+                <textarea id="message-text" rows="3" placeholder="写下现在的想法..." required></textarea>
+                <input type="submit" value="确认发送">
+            </form>
+        </fieldset>
+
+        <div id="display-messages">
+            <h3>历史留言记录</h3>
+            <div id="messages-list"></div>
+        </div>
     </div>
 
     <div class="music-ctrl">
-        <button onclick="toggleMusic()" style="font-size: 24px; cursor: pointer; border: none; background: none;">🎵</button>
+        <button onclick="toggleMusic()">🎵</button>
     </div>
-    <fieldset>
-        <legend>💌 给天帝/林林的留言</legend>
-        <form id="message-form" action="" method="get">
-            <div style="margin-bottom: 15px; text-align: left;">
-                <label for="nickname" style="display: block; margin-bottom: 5px;">昵称 (Nickname):</label>
-                <input type="text" id="nickname" name="nickname" placeholder="怎么称呼你呀？" />
-            </div>
-        
-            <div style="margin-bottom: 15px; text-align: left;">
-                <label for="message-text" style="display: block; margin-bottom: 5px;">想说的话 (Message):</label>
-                <textarea id="message-text" name="message-text" rows="4" placeholder="写下现在的想法..."></textarea>
-            </div>
-
-            <div style="text-align: center;">
-                <input type="submit" value="确认发送" />
-                <input type="reset" value="重填" />
-            </div>
-        </form>
-    </fieldset>
-
-    <div id="display-messages">
-        <h3>历史留言</h3>
-        <div id="messages-list"></div>
-    </div>    
 </body>
 </html>
