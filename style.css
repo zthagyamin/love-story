@@ -310,11 +310,24 @@ input[type="submit"] {
   background: none;
   cursor: pointer;
 }
+/* ================= 手写信照片区域样式 ================= */
+.letter-photo-area {
+    margin-top: 25px;       /* 和上面的文字保持距离 */
+    padding-top: 15px;      /* 内部间距 */
+    border-top: 1px dashed #ffb3b3; /* 加一条淡淡的分割线 */
+}
 
-.message-card small 
-{
-    display: block;
-    color: #bbb;
-    font-size: 0.8em;
-    text-align: right;
+.letter-hint {
+    color: #ff4d4d;         /* 使用表白红 */
+    font-size: 0.9rem;      /* 字号稍微小一点 */
+    margin-bottom: 10px;    /* 和照片保持距离 */
+    font-weight: bold;      /* 加粗 */
+}
+
+.letter-photo {
+    width: 100%;            /* 在手机上自动撑满宽度 */
+    max-width: 450px;       /* 在电脑上限制最大宽度，避免太大 */
+    border-radius: 15px;    /* 加一个温柔的圆角 */
+    border: 2px solid #ffccd5; /* 加一个淡淡的粉色边框 */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* 加一个淡淡的阴影，增加立体感 */
 }
